@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'HelfersHelfer';
 
   constructor(firebaseService: FirebaseService){
-    firebaseService.getKHList();
+    // firebaseService.getKHList();
   }
 }

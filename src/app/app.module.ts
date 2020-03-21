@@ -29,7 +29,7 @@ const NB_MODULES = [
 
 const CUSTOM_MODULES = [
   CoreModule,
-]
+];
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
-import { 
+import {
   NbCardModule,
   NbButtonModule,
   NbInputModule,
@@ -21,6 +21,7 @@ import { MapComponent } from './matching/components/map/map.component';
 import { ListComponent } from './list/list.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 const NB_MODULES = [
   NbCardModule,
@@ -34,7 +35,7 @@ const NB_MODULES = [
   NbListModule,
   NbDatepickerModule,
   NbTreeGridModule,
-]
+];
 @NgModule({
   declarations: [
     RegisterComponent,
@@ -52,6 +53,7 @@ const NB_MODULES = [
     PagesRoutingModule,
     FormsModule,
     ...NB_MODULES,
+    LeafletModule
   ]
 })
 export class PagesModule { }

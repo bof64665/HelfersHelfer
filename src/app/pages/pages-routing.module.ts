@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import { MapComponent } from './matching/components/map/map.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'offerList',
     component: ListComponent,
+  },
+  {
+    path: 'map',
+    component: MapComponent,
   }
 
 ];

@@ -12,6 +12,9 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
 import { CoreModule } from './@core/core.module';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 const NB_MODULES = [
   NbMenuModule.forRoot(),
@@ -36,7 +39,8 @@ const CUSTOM_MODULES = [
     ThemeModule.forRoot(),
     ...NB_MODULES,
     ...CUSTOM_MODULES,
-
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [

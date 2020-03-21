@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from './services/firebase/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HelfersHelfer';
+
+  constructor(firebaseService: FirebaseService){
+    firebaseService.getKHList();
+  }
 }

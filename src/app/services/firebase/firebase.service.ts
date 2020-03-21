@@ -27,8 +27,8 @@ export interface Hospital {
   name: string;
   name2?: string;
   postcode?: string;
-  longitude?: string;
-  latitude?: string;
+  longitude?: number;
+  latitude?: number;
 }
 
 export interface Helper {

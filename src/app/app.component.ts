@@ -9,7 +9,6 @@ import { FirebaseService } from './services/firebase/firebase.service';
 export class AppComponent {
   title = 'HelfersHelfer';
 
-  constructor(firebaseService: FirebaseService){
-    // firebaseService.getKHList();
+  constructor(firebaseService: FirebaseService) {
   }
 }

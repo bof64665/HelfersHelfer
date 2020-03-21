@@ -8,7 +8,7 @@ import {
   NbLayoutModule,
   NbMenuModule,
   NbToastrModule,
-  NbDialogModule, 
+  NbDialogModule,
   NbDatepickerModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
@@ -42,7 +42,10 @@ const CUSTOM_MODULES = [
     ThemeModule.forRoot(),
     ...NB_MODULES,
     ...CUSTOM_MODULES,
-
+    AngularFireModule,
+    AngularFirestoreModule,
+    PagesModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [

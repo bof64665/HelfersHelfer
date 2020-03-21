@@ -1,1 +1,17 @@
-<p>list works!</p>
+<nb-card>
+  <nb-card-body>
+    <p>Hilfsangebote für dein Gesuch "<strong>{{ gesuch }}</strong>"</p>
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth>
+
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
+
+      <ng-container *ngFor="let column of defaultColumns;let i = index" [nbTreeGridColumnDef]="column">
+        <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{defaultColumnsMapping[i].title}}</th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+      </ng-container>
+
+    </table>
+
+  </nb-card-body>
+</nb-card>

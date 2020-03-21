@@ -1,4 +1,4 @@
-import { NbCardModule, NbButtonModule, NbInputModule, NbFormFieldModule, NbIconModule } from '@nebular/theme';
+import { NbCardModule, NbTreeGridModule, NbButtonModule, NbInputModule, NbFormFieldModule, NbIconModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -31,6 +31,9 @@ const NB_MODULES = [
   ],
   imports: [
     CommonModule,
+    PagesRoutingModule,
+    NbTreeGridModule,
+    NbCardModule,
     PagesRoutingModule,
     FormsModule,
     ...NB_MODULES,

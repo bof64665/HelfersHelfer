@@ -1,6 +1,6 @@
 <nb-card>
+  <nb-card-header>Hilfsangebote für dein Gesuch "<strong>{{ helpRequest.description }}</strong>"</nb-card-header>
   <nb-card-body>
-    <p>Hilfsangebote für dein Gesuch "<strong>{{ gesuch }}</strong>"</p>
     <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth>
 
       <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>

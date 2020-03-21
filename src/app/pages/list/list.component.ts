@@ -29,7 +29,10 @@ export class ListComponent implements OnInit {
     {name: 'rating', title: 'Bewertung'}
   ];
 
-  gesuch = 'Lebensmitteleinkauf';
+  helpRequest = {
+    description: 'HILFE',
+    timestamp: 'Sa, 21.03.2020',
+  };
 
   dataSource: NbTreeGridDataSource<Entry>;
 

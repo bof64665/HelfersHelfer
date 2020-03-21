@@ -21,13 +21,13 @@ export class ProfileComponent implements OnInit {
   helpRequests = [
     {
       description: 'HILFE',
-      timestamp: 'test',
-    }
+      timestamp: 'Sa, 21.03.2020',
+    },
   ];
 
   newHelpRequest = {
     description: '',
-    timestamp: ''
+    timestamp: null
   };
 
   constructor(
@@ -50,4 +50,13 @@ export class ProfileComponent implements OnInit {
     this.profileEditing = false;
   }
 
+  onAddHelpRequest() {
+    this.helpRequests.push({
+      description: this.newHelpRequest.description,
+      timestamp: this.newHelpRequest.timestamp.format('dd, DD.MM.YYYY')
+    });
+    this.newHelpRequest.description = '';
+    this.newHelpRequest.timestamp = null;
+    console.log(this.helpRequests);
+  }
 }

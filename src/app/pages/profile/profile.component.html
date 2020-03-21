@@ -1,81 +1,90 @@
-<div class="col-md-12">
-  <nb-card accent="primary" class="full-height">
-    <nb-card-header><nb-user size="large" name="Anna Meier" title="Helfer (Sanitäter)"></nb-user></nb-card-header>
-    <nb-card-body>
-      <div class="row">
-        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Ort</label>
-        <nb-form-field class="col-md-3">
-          <nb-icon nbPrefix icon="map-outline"></nb-icon>
-          <input nbInput type="text" id="plz" class="input" placeholder="PLZ" status="basic" shape="round" [(ngModel)]="user.plz" [disabled]="!profileEditing" fullWidth>
-        </nb-form-field>
-        <nb-form-field class="col-md-7">
-          <nb-icon nbPrefix icon="pin-outline"></nb-icon>
-          <input nbInput type="text" id="location" class="input" placeholder="Ort" status="basic" shape="round" [(ngModel)]="user.location" [disabled]="!profileEditing" fullWidth>
-        </nb-form-field>
-      </div>
-      <p class="col-md-12"></p>
-      <div class="row">
-        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Institution</label>
-        <nb-form-field class="col-md-10">
-          <nb-icon nbPrefix icon="flag-outline"></nb-icon>
-          <input nbInput type="text" id="institution" class="input" placeholder="Institution" status="basic" shape="round" [(ngModel)]="user.institution" [disabled]="!profileEditing" fullWidth>
-        </nb-form-field>
-      </div>
-      <p class="col-md-12"></p>
-      <div class="row">
-        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Kontakt</label>
-        <nb-form-field class="col-md-10">
-          <nb-icon nbPrefix icon="at-outline"></nb-icon>
-          <input nbInput type="text" id="mail" class="input" placeholder="Mail" status="basic" shape="round" [(ngModel)]="user.mail" [disabled]="!profileEditing" fullWidth>
-        </nb-form-field>
-      </div>
-      <p class="col-md-12"></p>
-      <div class="row">
-        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Verfizierter Helfer</label>
-        <nb-checkbox class="col-md-10" [checked]="user.verified" disabled></nb-checkbox>
-      </div>
-      <p class="col-md-12"></p>
-      <div class="container">
-        <div class="row" id="rating">
-          <div class="col-sm">
-            Bewertungen:
-          </div>
-          <div class="col-sm">
-            Sterne
+<div class="row full-height">
+  <div class="col-md-6">
+    <nb-card accent="primary" class="full-height">
+      <nb-card-header>
+        <nb-user size="large" name="Anna Meier" title="Helfer (Sanitäter)"></nb-user>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Ort</label>
+          <nb-form-field class="col-md-3">
+            <nb-icon nbPrefix icon="map-outline"></nb-icon>
+            <input nbInput type="text" id="plz" class="input" placeholder="PLZ" status="basic" shape="round" [(ngModel)]="user.plz" [disabled]="!profileEditing" fullWidth>
+          </nb-form-field>
+          <nb-form-field class="col-md-7">
+            <nb-icon nbPrefix icon="pin-outline"></nb-icon>
+            <input nbInput type="text" id="location" class="input" placeholder="Ort" status="basic" shape="round" [(ngModel)]="user.location" [disabled]="!profileEditing" fullWidth>
+          </nb-form-field>
+        </div>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Institution</label>
+          <nb-form-field class="col-md-10">
+            <nb-icon nbPrefix icon="flag-outline"></nb-icon>
+            <input nbInput type="text" id="institution" class="input" placeholder="Institution" status="basic" shape="round" [(ngModel)]="user.institution" [disabled]="!profileEditing" fullWidth>
+          </nb-form-field>
+        </div>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Kontakt</label>
+          <nb-form-field class="col-md-10">
+            <nb-icon nbPrefix icon="at-outline"></nb-icon>
+            <input nbInput type="text" id="mail" class="input" placeholder="Mail" status="basic" shape="round" [(ngModel)]="user.mail" [disabled]="!profileEditing" fullWidth>
+          </nb-form-field>
+        </div>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Verfiziert</label>
+          <nb-checkbox class="col-md-10" [checked]="user.verified" disabled></nb-checkbox>
+        </div>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Bewertung</label>
+          <div class="col-md-10">
+            {{user.rating}}
           </div>
         </div>
-      </div>
-    </nb-card-body>
-    <nb-card-footer class="flex" *ngIf="!profileEditing; else other_content">
-      <button nbButton hero status="primary" shape="round" (click)="onEditProfile()"><nb-icon icon="edit-outline"></nb-icon>Profil bearbeiten</button>
-    </nb-card-footer>
-  </nb-card>
-</div>
-<p class="col-md-12"></p>
-<div class="col-md-12">
-  <nb-card accent="success">
-    <nb-card-header>Ich brauche Hilfe bei:</nb-card-header>
-    <nb-card-body>
-      <nb-list nbInfiniteList>
+      </nb-card-body>
+      <nb-card-footer class="flex" *ngIf="!profileEditing; else other_content">
+        <button nbButton hero status="primary" shape="round" (click)="onEditProfile()"><nb-icon icon="edit-outline"></nb-icon>Profil bearbeiten</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+
+  <div class="col-md-6">
+    <nb-card accent="success" size="medium" class="full-height">
+      <nb-card-header>Ich brauche Hilfe bei:</nb-card-header>
+      <nb-list>
         <nb-list-item *ngFor="let helpRequest of helpRequests">
-          {{helpRequest.description}}
+          <div class="row">
+            <p class="col-md-12 paragraph-2"><strong>{{helpRequest.timestamp}}</strong></p>
+            <p class="col-md-12">{{helpRequest.description}}</p>
+          </div>
         </nb-list-item>
       </nb-list>
-    </nb-card-body>
-    <nb-card-footer>
-<!--       <div class="row">
-        <div class="col-md-7">
-          <textarea nbInput type="text" id="mail" class="input" placeholder="Mail" status="basic" shape="round" [(ngModel)]="user.mail" [disabled]="!profileEditing" fullWidth></textarea>
+      <nb-card-footer>
+        <div class="row">
+          <div class="col-md-12">
+            <textarea nbInput type="text" id="newRequestDescription" class="input" placeholder="Beschreibung Ihres Hilfegesuchs" status="basic" shape="round" [(ngModel)]="newHelpRequest.description" fullWidth></textarea>
+          </div>
         </div>
-        <div class="col-md-3">
-          <input nbInput placeholder="Datum wählen" [nbDatepicker]="formpicker" shape="round" fullWidth><nb-datepicker #formpicker></nb-datepicker>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <div class="col-md-12 flex flex-vertical-center">
+            <input nbInput placeholder="Datum wählen" [nbDatepicker]="formpicker" shape="round" [(ngModel)]="newHelpRequest.timestamp" fullWidth>
+            <nb-datepicker #formpicker format="dd, DD.MM.YYYY"></nb-datepicker>
+          </div>
         </div>
-        <div class="col-md-2">
-          <button nbButton hero status="success" shape="round" (click)="onEditProfile()"><nb-icon icon="plus-outline"></nb-icon>Hinzufügen</button>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <div class="col-md-12 flex flex-vertical-center">
+            <button nbButton hero status="success" shape="round" (click)="onAddHelpRequest()"><nb-icon icon="plus-outline"></nb-icon>Hinzufügen</button>
+          </div>
         </div>
-      </div> -->
-    </nb-card-footer>
-  </nb-card>
+      </nb-card-footer>
+    </nb-card>
+  </div>
 </div>
 
 <ng-template #other_content>

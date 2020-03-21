@@ -1,4 +1,4 @@
-import { 
+import {
   NbCardModule,
   NbButtonModule,
   NbInputModule,
@@ -20,6 +20,7 @@ import { CardComponent } from './matching/components/card/card.component';
 import { MapComponent } from './matching/components/map/map.component';
 import { ListComponent } from './list/list.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbMomentDateModule } from '@nebular/moment';
 import { FormsModule } from '@angular/forms';
 
 const NB_MODULES = [
@@ -34,6 +35,7 @@ const NB_MODULES = [
   NbListModule,
   NbDatepickerModule,
   NbTreeGridModule,
+  NbMomentDateModule
 ]
 @NgModule({
   declarations: [

@@ -45,6 +45,9 @@ const NB_MODULES = [
   imports: [
     CommonModule,
     PagesRoutingModule,
+    NbTreeGridModule,
+    NbCardModule,
+    PagesRoutingModule,
     FormsModule,
     ...NB_MODULES,
   ]

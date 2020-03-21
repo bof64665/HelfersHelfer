@@ -1,1 +1,18 @@
-<p>matching works!</p>
+<nb-card>
+  <nb-card-body>
+    <div class="flex flex-vertical-center flex-horizontal-center">
+      <div style="width:22rem">
+        <img src="./assets/demo_helfer.png" class="w-100"/>
+        <button nbButton fullWidth class="text-left"><nb-icon icon="search"></nb-icon> {{ need }}</button>
+        <button nbButton fullWidth><nb-icon icon="clock"></nb-icon> {{ time }}</button>
+      </div>
+    </div>
+    <div class="flex flex-horizontal-center container">
+      <div class="row">
+          <button style="width:11rem" class="col" nbButton fullWidth status="danger"><nb-icon icon="close-circle"></nb-icon>Keine Zeit</button>
+
+          <button style="width:11rem" class="col" nbButton fullWidth status="success"><nb-icon icon="star"></nb-icon>Mach ich gerne</button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

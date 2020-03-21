@@ -22,6 +22,9 @@ public class Spital {
     String postcode;
     String city;
 
+    double longitute;
+    double latitude;
+
     public void parseInputs() {
 
         if (inputlist.size() == 2) {
@@ -50,6 +53,13 @@ public class Spital {
             postcode = inputlist.get(3).substring(0, 5);
             city = inputlist.get(4).substring(6, inputlist.get(4).length());
         }
+
+        if (" ".equals(postcode.substring(4))) {
+            postcode = postcode.replace(" ", "");
+            postcode = "0" + postcode;
+        }
+
+//        System.err.println(postcode);
     }
 
     public void add(String input) {
@@ -102,6 +112,27 @@ public class Spital {
 
     public void setName2(String name2) {
         this.name2 = name2;
+    }
+
+    public double getLongitute() {
+        return longitute;
+    }
+
+    public void setLongitute(double longitute) {
+        this.longitute = longitute;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    @Override
+    public String toString() {
+        return "Spital{" + "name=" + name + ", city=" + city + ", longitute=" + longitute + ", latitude=" + latitude + '}';
     }
 
 }

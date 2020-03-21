@@ -1,1 +1,20 @@
-<p>register works!</p>
+<div class="flex flex-vertical-center flex-horizontal-center">
+  <nb-card style="max-width: 30rem;" accent="primary">
+    <nb-card-header>Einloggen</nb-card-header>
+    <nb-card-body>
+      <nb-form-field>
+        <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
+        <input nbInput type="text" shape="round" placeholder="Benutzername" [(ngModel)]="username" fullWidth>
+      </nb-form-field>
+      <p class="col-md-12"></p>
+      <nb-form-field>
+        <nb-icon nbPrefix icon="lock-outline" pack="eva"></nb-icon>
+        <input nbInput type="password" shape="round" placeholder="Passwort" [(ngModel)]="pw" fullWidth>
+      </nb-form-field>
+    </nb-card-body>
+    <nb-card-footer class="flex flex-horizontal-center">
+      <button nbButton status="primary" shape="round" (click)="onLogin()">Login</button>
+    </nb-card-footer>
+  </nb-card>
+</div>
+

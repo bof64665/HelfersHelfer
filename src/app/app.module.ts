@@ -12,6 +12,7 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
 import { CoreModule } from './@core/core.module';
+import { PagesModule } from './pages/pages.module';
 
 const NB_MODULES = [
   NbMenuModule.forRoot(),
@@ -36,6 +37,7 @@ const CUSTOM_MODULES = [
     ThemeModule.forRoot(),
     ...NB_MODULES,
     ...CUSTOM_MODULES,
+    PagesModule,
 
   ],
   providers: [],

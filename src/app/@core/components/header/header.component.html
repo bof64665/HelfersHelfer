@@ -1,14 +1,19 @@
 <nb-layout-header fixed>
   <div class="header-container">
     <div class="logo-container">
-      <a routerLink="/#" class="sidebar-toggle">
+      <a routerLink="/" class="sidebar-toggle">
         <nb-icon icon="people-outline"></nb-icon>
       </a>
-      <a class="logo" href="/home">HelfersHelfer</a>
+      <a class="logo" link="/home">HelfersHelfer</a>
     </div>
   </div>
   <span style="flex: 1 1"></span>
-  <nb-actions>
-    <nb-action icon="compass-outline" link="/home" nbTooltip="Test" nbTooltipPlacement="left" nbTooltipStatus="primary"></nb-action>
-  </nb-actions>
+  <!-- ToDo: if user auth from firebase -->
+  <nb-action style="border-left: 0px;">
+    <nb-user [nbContextMenu]="userMenu"
+      size="large"
+      name="John Doe"
+      title="Medic">
+    </nb-user>
+  </nb-action>
 </nb-layout-header>

@@ -8,18 +8,21 @@ import {
   NbLayoutModule,
   NbMenuModule,
   NbToastrModule,
-  NbDialogModule } from '@nebular/theme';
+  NbDialogModule, 
+  NbDatepickerModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
 import { CoreModule } from './@core/core.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { PagesModule } from './pages/pages.module';
 
 const NB_MODULES = [
   NbMenuModule.forRoot(),
   NbToastrModule.forRoot(),
   NbDialogModule.forRoot(),
+  NbDatepickerModule.forRoot(),
   NbLayoutModule,
   NbEvaIconsModule,
 ];
@@ -39,8 +42,7 @@ const CUSTOM_MODULES = [
     ThemeModule.forRoot(),
     ...NB_MODULES,
     ...CUSTOM_MODULES,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+
   ],
   providers: [],
   bootstrap: [

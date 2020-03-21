@@ -7,9 +7,14 @@ import {
   NbIconModule,
   NbLayoutModule,
   NbActionsModule,
-  NbTooltipModule } from '@nebular/theme';
+  NbTooltipModule,
+  NbUserModule,
+  NbMenuModule,
+  NbContextMenuModule} from '@nebular/theme';
 import { HeaderComponent } from './components/header/header.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -20,20 +25,24 @@ const NB_MODULES = [
   NbIconModule,
   NbActionsModule,
   NbTooltipModule,
+  NbUserModule,
+  NbMenuModule,
+  NbContextMenuModule
 ];
 
 const COMPONENTS = [
   HeaderComponent,
+  NotFoundComponent,
 ];
 
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    HeaderComponent,
   ],
   imports: [
     ...NB_MODULES,
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     ...COMPONENTS,

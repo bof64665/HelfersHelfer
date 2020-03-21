@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./matching.component.scss']
 })
 export class MatchingComponent implements OnInit {
+  need = 'Lebensmitteleinkauf'
+  time = 'Montag 9 - 14 Uhr'
 
   constructor() { }
 

@@ -12,7 +12,7 @@ export class HeaderComponent {
     {
       title: 'Profile',
       icon: 'person-outline',
-      link: '/profile'
+      link: '/profile/1'
     },
     {
       title: 'Log out',

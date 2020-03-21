@@ -1,4 +1,13 @@
-import { NbCardModule, NbButtonModule, NbInputModule, NbFormFieldModule, NbIconModule } from '@nebular/theme';
+import { 
+  NbCardModule,
+  NbButtonModule,
+  NbInputModule,
+  NbFormFieldModule,
+  NbIconModule,
+  NbUserModule,
+  NbCheckboxModule,
+  NbListModule, 
+  NbDatepickerModule} from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +28,10 @@ const NB_MODULES = [
   NbFormFieldModule,
   NbEvaIconsModule,
   NbIconModule,
+  NbUserModule,
+  NbCheckboxModule,
+  NbListModule,
+  NbDatepickerModule,
 ]
 @NgModule({
   declarations: [

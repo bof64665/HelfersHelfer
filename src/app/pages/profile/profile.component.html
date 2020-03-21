@@ -1,60 +1,86 @@
-<div>
-  <div class="col-1" id="profile">
-    <img src="" />
-    <div>username</div>
-  </div>
+<div class="col-md-12">
+  <nb-card accent="primary" class="full-height">
+    <nb-card-header><nb-user size="large" name="Anna Meier" title="Helfer (Sanitäter)"></nb-user></nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Ort</label>
+        <nb-form-field class="col-md-3">
+          <nb-icon nbPrefix icon="map-outline"></nb-icon>
+          <input nbInput type="text" id="plz" class="input" placeholder="PLZ" status="basic" shape="round" [(ngModel)]="user.plz" [disabled]="!profileEditing" fullWidth>
+        </nb-form-field>
+        <nb-form-field class="col-md-7">
+          <nb-icon nbPrefix icon="pin-outline"></nb-icon>
+          <input nbInput type="text" id="location" class="input" placeholder="Ort" status="basic" shape="round" [(ngModel)]="user.location" [disabled]="!profileEditing" fullWidth>
+        </nb-form-field>
+      </div>
+      <p class="col-md-12"></p>
+      <div class="row">
+        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Institution</label>
+        <nb-form-field class="col-md-10">
+          <nb-icon nbPrefix icon="flag-outline"></nb-icon>
+          <input nbInput type="text" id="institution" class="input" placeholder="Institution" status="basic" shape="round" [(ngModel)]="user.institution" [disabled]="!profileEditing" fullWidth>
+        </nb-form-field>
+      </div>
+      <p class="col-md-12"></p>
+      <div class="row">
+        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Kontakt</label>
+        <nb-form-field class="col-md-10">
+          <nb-icon nbPrefix icon="at-outline"></nb-icon>
+          <input nbInput type="text" id="mail" class="input" placeholder="Mail" status="basic" shape="round" [(ngModel)]="user.mail" [disabled]="!profileEditing" fullWidth>
+        </nb-form-field>
+      </div>
+      <p class="col-md-12"></p>
+      <div class="row">
+        <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Verfizierter Helfer</label>
+        <nb-checkbox class="col-md-10" [checked]="user.verified" disabled></nb-checkbox>
+      </div>
+      <p class="col-md-12"></p>
+      <div class="container">
+        <div class="row" id="rating">
+          <div class="col-sm">
+            Bewertungen:
+          </div>
+          <div class="col-sm">
+            Sterne
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="flex" *ngIf="!profileEditing; else other_content">
+      <button nbButton hero status="primary" shape="round" (click)="onEditProfile()"><nb-icon icon="edit-outline"></nb-icon>Profil bearbeiten</button>
+    </nb-card-footer>
+  </nb-card>
+</div>
+<p class="col-md-12"></p>
+<div class="col-md-12">
+  <nb-card accent="success">
+    <nb-card-header>Ich brauche Hilfe bei:</nb-card-header>
+    <nb-card-body>
+      <nb-list nbInfiniteList>
+        <nb-list-item *ngFor="let helpRequest of helpRequests">
+          {{helpRequest.description}}
+        </nb-list-item>
+      </nb-list>
+    </nb-card-body>
+    <nb-card-footer>
+<!--       <div class="row">
+        <div class="col-md-7">
+          <textarea nbInput type="text" id="mail" class="input" placeholder="Mail" status="basic" shape="round" [(ngModel)]="user.mail" [disabled]="!profileEditing" fullWidth></textarea>
+        </div>
+        <div class="col-md-3">
+          <input nbInput placeholder="Datum wählen" [nbDatepicker]="formpicker" shape="round" fullWidth><nb-datepicker #formpicker></nb-datepicker>
+        </div>
+        <div class="col-md-2">
+          <button nbButton hero status="success" shape="round" (click)="onEditProfile()"><nb-icon icon="plus-outline"></nb-icon>Hinzufügen</button>
+        </div>
+      </div> -->
+    </nb-card-footer>
+  </nb-card>
 </div>
 
-<div class="container">
-  <div class="row" id="location">
-    <div class="col-sm">
-      Ort:
-    </div>
-    <div class="col-sm">
-      Regensburg (93047)
-    </div>
-  </div>
-  <div class="row" id="contact">
-    <div class="col-sm">
-      Kontakt:
-    </div>
-    <div class="col-sm">
-      john@doe.com
-    </div>
-  </div>
-  <div class="row" id="rating">
-    <div class="col-sm">
-      Bewertungen:
-    </div>
-    <div class="col-sm">
-      Sterne
-    </div>
-  </div>
-  <div class="row" id="institution">
-    <div class="col-sm">
-      Institution:
-    </div>
-    <div class="col-sm">
-      Universitaetsklinikum Regensburg
-    </div>
-  </div>
-  <div class="row" id="verified">
-    <div class="col-sm">
-      Verifizierter HelferIn:
-    </div>
-    <div class="col-sm">
-      ja (Email)
-    </div>
-  </div>
-  <div class="row" id="help">
-    <div class="col-sm">
-      Ich brauche Hilfe bei:
-    </div>
-    <div class="col-sm">
-      Erledigung von Lebensmitteleinkaeufen
-    </div>
-  </div>
-</div>
-
-<button>Profil bearbeiten</button>
-
+<ng-template #other_content>
+  <nb-card-footer class="flex">
+    <button nbButton hero status="danger" shape="round" (click)="onCancelEdit()" style="margin-right: 1rem;"><nb-icon icon="close-outline"></nb-icon>Abbrechen</button>
+    <button nbButton hero status="success" shape="round" (click)="onSaveProfile()"><nb-icon icon="checkmark-outline"></nb-icon>Speichern</button>
+  </nb-card-footer>
+</ng-template>

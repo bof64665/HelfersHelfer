@@ -8,7 +8,8 @@ import {
   NbLayoutModule,
   NbMenuModule,
   NbToastrModule,
-  NbDialogModule } from '@nebular/theme';
+  NbDialogModule, 
+  NbDatepickerModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './@theme/theme.module';
 import { CoreModule } from './@core/core.module';
@@ -18,6 +19,7 @@ const NB_MODULES = [
   NbMenuModule.forRoot(),
   NbToastrModule.forRoot(),
   NbDialogModule.forRoot(),
+  NbDatepickerModule.forRoot(),
   NbLayoutModule,
   NbEvaIconsModule,
 ];

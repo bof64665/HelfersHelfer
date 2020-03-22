@@ -6,6 +6,16 @@
         <nb-icon class="w-100 d-block" icon="person" [options]="{ width: 400, height: 400}"></nb-icon>
       </div>
     </nb-card>
+    <nb-card class="mb-0" *ngIf="helper">
+      <div class="row p-2">
+        <div class="col-md-1 ml-2">
+          <nb-icon icon="person"></nb-icon>
+        </div>
+        <div class="col">
+          <span>{{ helper.name }}</span><!-- TODO FABI LINK-->
+        </div>
+      </div>
+    </nb-card>
     <nb-card class="mb-0">
       <div class="row p-2">
         <div class="col-md-1 ml-2">
@@ -16,7 +26,7 @@
         </div>
       </div>
     </nb-card>
-    <nb-card class="mb-0">
+    <nb-card class="mb-0" *ngIf="currentHelpRequest">
       <div class="row p-2">
         <div class="col-md-1 ml-2">
           <nb-icon icon="clock"></nb-icon>

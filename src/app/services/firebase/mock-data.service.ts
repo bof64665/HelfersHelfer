@@ -8,17 +8,7 @@ export class MockDataService {
 
   constructor() { }
 
-  userMenu = [
-    {
-      title: 'Profile',
-      icon: 'person-outline',
-      link: '/profile/1'
-    },
-    {
-      title: 'Log out',
-      icon: 'unlock-outline'
-    }
-  ];
+  userMenu = [ ];
 
   loggedInUser = null;
 
@@ -80,16 +70,30 @@ export class MockDataService {
   ];
 
   updateUserMenu() {
-    this.userMenu = [
-      {
-        title: 'Profile',
-        icon: 'person-outline',
-        link: `/profile/${this.loggedInUser.id}`
-      },
-      {
-        title: 'Log out',
-        icon: 'unlock-outline'
-      }
-    ];
+    this.userMenu = [];
+
+    const userMenuProfile = {
+      title: 'Profil',
+      icon: 'person-outline',
+      link: `/profile/${this.loggedInUser.id}`
+    };
+    const userMenuLogOut = {
+      title: 'Ausloggen',
+      icon: 'unlock-outline'
+    };
+    const userMenuHelpOffer = {
+      title: 'Ich will helfen!',
+      icon: 'navigation-2-outline',
+      link: '/matching',
+    };
+    const userMenuHelpRequest = {
+      title: 'Ich brauche Hilfe!',
+      icon: 'search-outline',
+      link: `/hilfeGesuche/${this.loggedInUser.id}`
+    };
+
+    this.userMenu.push(userMenuProfile);
+    this.userMenu.push(this.loggedInUser.type === 'Helfer' ? userMenuHelpRequest : userMenuHelpOffer);
+    this.userMenu.push(userMenuLogOut);
   }
 }

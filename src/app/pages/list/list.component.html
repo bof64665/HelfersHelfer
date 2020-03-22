@@ -36,7 +36,6 @@
   <div class="col-md-6 full-height">
     <nb-card accent="success" class="full-height">
       <nb-card-header>Hilfsangebote</nb-card-header>
-
         <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth>
 
           <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
@@ -53,7 +52,6 @@
               <a (click)="onLinkClick($event)" style="cursor: pointer;">{{row.data[nameColumn]}}</a>
             </td>
           </ng-container>
-
         </table>
     </nb-card>
   </div>

@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -32,6 +33,7 @@ const NB_MODULES = [
 
 const COMPONENTS = [
   HeaderComponent,
+  FooterComponent,
   NotFoundComponent,
 ];
 

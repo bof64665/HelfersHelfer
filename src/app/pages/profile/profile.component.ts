@@ -1,3 +1,4 @@
+import { MockDataService } from './../../services/firebase/mock-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,33 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   profileEditing = false;
-  user = {
-    location: 'Regensburg',
-    plz: '93053',
-    institution: 'Universitätsklinikum Regensburg',
-    mail: 'anna.maier@ukr.de',
-    verified: true,
-    rating: 4,
-  };
-
-  helpRequests = [
-    {
-      description: 'HILFE',
-      timestamp: 'test',
-    }
-  ];
-
-  newHelpRequest = {
-    description: '',
-    timestamp: ''
-  };
+  helfer = false;
+  user = null;
 
   constructor(
     private route: ActivatedRoute,
+    public dataService: MockDataService,
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('userId'));
+    this.user = this.dataService.users.find( user => user.id === this.route.snapshot.paramMap.get('userId'));
+    this.helfer = this.user.type === 'Helfer' ? true : false;
   }
 
   onEditProfile() {
@@ -50,4 +35,7 @@ export class ProfileComponent implements OnInit {
     this.profileEditing = false;
   }
 
+  numbers(n: number): number[] {
+    return [...Array(n).keys()];
+  }
 }

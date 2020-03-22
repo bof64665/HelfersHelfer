@@ -21,7 +21,7 @@ const routes: Routes = [
     component: MatchingComponent,
   },
   {
-    path: 'offerList',
+    path: 'hilfeGesuche/:userId',
     component: ListComponent,
   },
   {

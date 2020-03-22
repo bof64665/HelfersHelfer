@@ -1,17 +1,61 @@
-<nb-card>
-  <nb-card-body>
-    <p>Hilfsangebote für dein Gesuch "<strong>{{ gesuch }}</strong>"</p>
-    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth>
+<div class="row full-height">
+  <div class="col-md-6 full-height">
+    <nb-card accent="primary" class="full-height">
+      <nb-card-header>Ich brauche Hilfe bei:</nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let helpRequest of helpRequests">
+          <div class="row">
+            <p class="col-md-12 paragraph-2"><strong>{{helpRequest.timestamp}}</strong></p>
+            <p class="col-md-12">{{helpRequest.description}}</p>
+          </div>
+        </nb-list-item>
+      </nb-list>
+      <nb-card-footer>
+        <div class="row">
+          <div class="col-md-12">
+            <textarea nbInput type="text" id="newRequestDescription" class="input" placeholder="Wobei brauchst du Hilfe" status="basic" shape="round" [(ngModel)]="newHelpRequest.description" fullWidth></textarea>
+          </div>
+        </div>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <div class="col-md-12 flex flex-vertical-center">
+            <input nbInput placeholder="Wann brauchst du Hilfe" [nbDatepicker]="formpicker" shape="round" [(ngModel)]="newHelpRequest.timestamp" fullWidth>
+            <nb-datepicker #formpicker format="dd, DD.MM.YYYY"></nb-datepicker>
+          </div>
+        </div>
+        <p class="col-md-12"></p>
+        <div class="row">
+          <div class="col-md-12 flex flex-vertical-center">
+            <button nbButton hero status="success" shape="round" (click)="onAddHelpRequest()"><nb-icon icon="plus-outline"></nb-icon>Hinzufügen</button>
+          </div>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
 
-      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
-      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
+  <div class="col-md-6 full-height">
+    <nb-card accent="success" class="full-height">
+      <nb-card-header>Hilfsangebote</nb-card-header>
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth>
 
-      <ng-container *ngFor="let column of defaultColumns;let i = index" [nbTreeGridColumnDef]="column">
-        <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{defaultColumnsMapping[i].title}}</th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-      </ng-container>
+          <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
+          <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
 
-    </table>
+          <ng-container *ngFor="let column of defaultColumns;let i = index" [nbTreeGridColumnDef]="column">
+            <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{columnsMapping[i].title}}</th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+          </ng-container>
 
-  </nb-card-body>
-</nb-card>
+          <ng-container [nbTreeGridColumnDef]="nameColumn">
+            <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>Name</th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+              <a (click)="onLinkClick($event)" style="cursor: pointer;">{{row.data[nameColumn]}}</a>
+            </td>
+          </ng-container>
+        </table>
+    </nb-card>
+  </div>
+</div>
+
+
+

@@ -1,3 +1,4 @@
+import { MockDataService } from './services/firebase/mock-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -47,7 +48,9 @@ const CUSTOM_MODULES = [
     PagesModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [
+    MockDataService,
+  ],
   bootstrap: [
     AppComponent
   ]

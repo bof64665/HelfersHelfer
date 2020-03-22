@@ -8,7 +8,9 @@ import {
   NbCheckboxModule,
   NbListModule,
   NbDatepickerModule,
-  NbTreeGridModule} from '@nebular/theme';
+  NbTreeGridModule,
+  NbTabsetModule,
+  NbActionsModule} from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -20,6 +22,7 @@ import { CardComponent } from './matching/components/card/card.component';
 import { MapComponent } from './matching/components/map/map.component';
 import { ListComponent } from './list/list.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbMomentDateModule } from '@nebular/moment';
 import { FormsModule } from '@angular/forms';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
@@ -35,7 +38,10 @@ const NB_MODULES = [
   NbListModule,
   NbDatepickerModule,
   NbTreeGridModule,
-];
+  NbMomentDateModule,
+  NbTabsetModule,
+  NbActionsModule,
+]
 @NgModule({
   declarations: [
     RegisterComponent,

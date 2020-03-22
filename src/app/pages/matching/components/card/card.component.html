@@ -1,20 +1,34 @@
 <div class="flex flex-vertical-center flex-horizontal-center">
-  <div style="width:22rem">
+  <div style="width:24rem">
     <img src="{{helper.img}}" class="w-100"/>
-    <button nbButton fullWidth class="text-left">
-      <nb-icon icon="search"></nb-icon> {{ currentHelpRequest ? currentHelpRequest.description : ' Nichts mehr zu tun...' }}
-    </button>
-    <button nbButton fullWidth><nb-icon icon="clock">
-      </nb-icon> {{ this.currentHelpRequest ? this.currentHelpRequest.timestamp : ' ... '}}
-    </button>
+    <nb-card class="mb-0">
+      <div class="row p-2">
+        <div class="col-md-1 ml-2">
+          <nb-icon icon="search"></nb-icon>
+        </div>
+        <div class="col">
+          <span>{{ currentHelpRequest ? currentHelpRequest.description : ' Nichts mehr zu tun...' }}</span>
+        </div>
+      </div>
+    </nb-card>
+    <nb-card class="mb-0">
+      <div class="row p-2">
+        <div class="col-md-1 ml-2">
+          <nb-icon icon="clock"></nb-icon>
+        </div>
+        <div class="col">
+          {{ this.currentHelpRequest ? this.currentHelpRequest.timestamp : ' ... '}}
+        </div>
+      </div>
+    </nb-card>
   </div>
 </div>
 <div class="flex flex-horizontal-center container">
   <div class="row">
-    <button style="width:11rem" class="col" nbButton fullWidth status="danger" (click)="onRefuse()" [disabled]="!currentHelpRequest">
+    <button style="width:12rem;height:100px" class="col" nbButton fullWidth status="danger" (click)="onRefuse()" [disabled]="!currentHelpRequest">
       <nb-icon icon="close-circle"></nb-icon>Keine Zeit
     </button>
-    <button style="width:11rem" class="col" nbButton fullWidth status="success" (click)="onHelp()" [disabled]="!currentHelpRequest">
+    <button style="width:12rem;cursor:pointer" class="col" nbButton fullWidth status="success" (click)="onHelp()" [disabled]="!currentHelpRequest">
       <nb-icon icon="star"></nb-icon>Mach ich gerne
     </button>
   </div>

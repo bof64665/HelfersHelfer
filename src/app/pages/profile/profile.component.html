@@ -52,8 +52,9 @@
         <p class="col-md-12"></p>
         <div class="row">
           <label class="col-md-2 flex flex-vertical-center" style="margin-bottom: 0rem;">Bewertung</label>
-          <div class="col-md-10">
-            {{user.rating}}
+          <div class="col-md-10" >
+            <nb-icon *ngFor="let i of numbers(user.rating)" icon="star"></nb-icon>
+            <nb-icon *ngFor="let i of numbers(5 - user.rating)" icon="star-outline"></nb-icon>
           </div>
         </div>
       </nb-card-body>

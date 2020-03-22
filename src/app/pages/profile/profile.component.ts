@@ -34,4 +34,8 @@ export class ProfileComponent implements OnInit {
   onCancelEdit() {
     this.profileEditing = false;
   }
+
+  numbers(n: number): number[] {
+    return [...Array(n).keys()];
+  }
 }

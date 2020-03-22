@@ -52,6 +52,15 @@
               <a (click)="onLinkClick($event)" style="cursor: pointer;">{{row.data[nameColumn]}}</a>
             </td>
           </ng-container>
+
+          <ng-container [nbTreeGridColumnDef]="ratingColumn">
+            <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>Bewertung</th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+              <nb-icon *ngFor="let i of numbers(row.data[ratingColumn])" icon="star"></nb-icon>
+              <nb-icon *ngFor="let i of numbers(5 - row.data[ratingColumn])" icon="star-outline"></nb-icon>
+            </td>
+          </ng-container>
+
         </table>
     </nb-card>
   </div>

@@ -23,13 +23,14 @@ interface Entry {
 })
 
 export class ListComponent implements OnInit {
-  defaultColumns = ['distance', 'rating'];
+  defaultColumns = ['distance'];
   nameColumn = 'name';
-  allColumns = [ this.nameColumn, ...this.defaultColumns];
+  ratingColumn = 'rating';
+  allColumns = [ this.nameColumn, this.defaultColumns[0], this.ratingColumn];
   columnsMapping = [
-    {name: 'name', title: 'Name'},
+    //{name: 'name', title: 'Name'},
     {name: 'distance', title: 'Entfernung'},
-    {name: 'rating', title: 'Bewertung'}
+    //{name: 'rating', title: 'Bewertung'}
   ];
 
   helpRequests = [ ];
@@ -90,5 +91,9 @@ export class ListComponent implements OnInit {
   onLinkClick(event: any) {
     this.dataService.users.find( user => user.name === event.target.text);
     this.router.navigate([`profile/${this.dataService.users.find( user => user.name === event.target.text).id}`]);
+  }
+
+  numbers(n: number): number[] {
+    return [...Array(n).keys()];
   }
 }

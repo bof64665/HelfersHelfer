@@ -60,7 +60,7 @@ export class FirebaseService {
     },
   ];
 
-  hospitals: Hospital[] =[
+  hospitalsRegensburg: Hospital[] =[
     {
       name: "Universitätsklinikum Regensburg",
       address: "Franz-Josef-Strauss Allee 11",
@@ -90,7 +90,7 @@ export class FirebaseService {
     ];
 
 
-  hospitalsFull: Hospital[] =[
+  hospitals: Hospital[] =[
     {name:"Charité - Universitätsmedizin Berlin",name2:"ARDS ECMO Zentrum",address:"Augustenburger Platz 1",postcode:"15535",city:"Berlin",longitude:13.34784,latitude:52.542332},
     {name:"Elisabeth-Krankenhaus Essen",name2:"Klinik für Akut und Notfallmedizin Cardiac Arrest Center Esssen",address:"Klara-Kopp-Weg 1",postcode:"45138",city:"Essen",longitude:7.033164,latitude:51.445484},
     {name:"Helios Klinikum Bad Saarow",name2:"Klinik für Anästhesiologie, Intensivmedizin und Schmerztherapie ECMO-Zentrum Ost-Brandenburg",address:"Pieskower Straße 33",postcode:"15526",city:"Bad Saarow",longitude:14.0833,latitude:52.3},

@@ -37,7 +37,7 @@ export class MockDataService {
       verified: true,
       rating: 4,
       type: 'HelfersHelfer',
-      job: 'Chief Executive Facility Manager',
+      job: 'Bibliothekar',
       img: './assets/demo_helfershelfer.png'
     },
     {

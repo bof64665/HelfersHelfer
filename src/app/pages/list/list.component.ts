@@ -34,6 +34,18 @@ export class ListComponent implements OnInit {
     timestamp: 'Sa, 21.03.2020',
   };
 
+  helpRequests = [
+    {
+      description: 'HILFE',
+      timestamp: 'Sa, 21.03.2020',
+    },
+  ];
+
+  newHelpRequest = {
+    description: '',
+    timestamp: null
+  };
+
   dataSource: NbTreeGridDataSource<Entry>;
 
   constructor(dataSourceBuilder: NbTreeGridDataSourceBuilder<Entry>) {
@@ -50,6 +62,16 @@ export class ListComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+  }
+
+  onAddHelpRequest() {
+    this.helpRequests.push({
+      description: this.newHelpRequest.description,
+      timestamp: this.newHelpRequest.timestamp.format('dd, DD.MM.YYYY')
+    });
+    this.newHelpRequest.description = '';
+    this.newHelpRequest.timestamp = null;
+    console.log(this.helpRequests);
   }
 
 }

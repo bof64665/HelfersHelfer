@@ -8,9 +8,12 @@
     </div>
   </div>
   <span style="flex: 1 1"></span>
-  <!-- ToDo: if user auth from firebase -->
-  <nb-action style="border-left: 0px;">
-    <nb-user [nbContextMenu]="userMenu" size="large" name="Anna Meier" title="Helfer (Sanitäter)">
-    </nb-user>
+  <nb-action *ngIf="dataService.loggedInUser" style="border-left: 0px;">
+    <nb-user
+    [nbContextMenu]="dataService.userMenu"
+    size="large"
+    [name]="dataService.loggedInUser.name"
+    [title]="dataService.loggedInUser.type + ' (' + dataService.loggedInUser.job + ')'"
+    [picture]="dataService.loggedInUser.img"></nb-user>
   </nb-action>
 </nb-layout-header>

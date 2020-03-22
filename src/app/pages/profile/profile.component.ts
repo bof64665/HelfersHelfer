@@ -1,3 +1,4 @@
+import { MockDataService } from './../../services/firebase/mock-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,33 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   profileEditing = false;
-  user = {
-    location: 'Regensburg',
-    plz: '93053',
-    institution: 'Universitätsklinikum Regensburg',
-    mail: 'anna.maier@ukr.de',
-    verified: true,
-    rating: 4,
-  };
-
-  helpRequests = [
-    {
-      description: 'HILFE',
-      timestamp: 'Sa, 21.03.2020',
-    },
-  ];
-
-  newHelpRequest = {
-    description: '',
-    timestamp: null
-  };
+  helfer = false;
+  user = null;
 
   constructor(
     private route: ActivatedRoute,
+    public dataService: MockDataService,
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('userId'));
+    this.user = this.dataService.users.find( user => user.id === this.route.snapshot.paramMap.get('userId'));
+    this.helfer = this.user.type === 'Helfer' ? true : false;
   }
 
   onEditProfile() {
@@ -48,15 +33,5 @@ export class ProfileComponent implements OnInit {
 
   onCancelEdit() {
     this.profileEditing = false;
-  }
-
-  onAddHelpRequest() {
-    this.helpRequests.push({
-      description: this.newHelpRequest.description,
-      timestamp: this.newHelpRequest.timestamp.format('dd, DD.MM.YYYY')
-    });
-    this.newHelpRequest.description = '';
-    this.newHelpRequest.timestamp = null;
-    console.log(this.helpRequests);
   }
 }

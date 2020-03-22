@@ -8,7 +8,8 @@ import {
   NbCheckboxModule,
   NbListModule,
   NbDatepickerModule,
-  NbTreeGridModule} from '@nebular/theme';
+  NbTreeGridModule,
+  NbTabsetModule} from '@nebular/theme';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -35,7 +36,8 @@ const NB_MODULES = [
   NbListModule,
   NbDatepickerModule,
   NbTreeGridModule,
-  NbMomentDateModule
+  NbMomentDateModule,
+  NbTabsetModule,
 ]
 @NgModule({
   declarations: [

@@ -1,4 +1,6 @@
+import { MockDataService } from './../../services/firebase/mock-data.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,16 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  username: string;
+  mail: string;
   pw: string;
 
-  constructor() { }
+  constructor(
+    private dataService: MockDataService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
 
   }
 
   onLogin() {
-    console.log(`user: ${this.username} | pw: ${this.pw}`);
+    const loggedInUser = this.dataService.users.find(( user: any ) => {
+      return user.mail === this.mail && user.pw === this.pw;
+    });
+    if (loggedInUser) {
+      this.dataService.loggedInUser = loggedInUser;
+      this.router.navigate([`profile/${this.dataService.loggedInUser.id}`]);
+    }
   }
 }

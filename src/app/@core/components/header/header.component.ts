@@ -1,5 +1,6 @@
+import { MockDataService } from './../../../services/firebase/mock-data.service';
 import { Component } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
+import { NbMenuService } from '@nebular/theme';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +9,7 @@ import { NbMenuItem } from '@nebular/theme';
 })
 export class HeaderComponent {
 
-  userMenu = [
-    {
-      title: 'Profile',
-      icon: 'person-outline',
-      link: '/profile/1'
-    },
-    {
-      title: 'Log out',
-      icon: 'unlock-outline'
-    }
-  ];
-
-  constructor() { }
-
+  constructor(
+    public dataService: MockDataService,
+  ) { }
 }

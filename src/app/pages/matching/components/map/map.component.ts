@@ -41,7 +41,7 @@ export class MapComponent implements OnInit {
                 iconAnchor: [ 25, 25 ],
                 iconUrl: 'assets/helper.png',
               })}
-              ).bindPopup(`<b>Helfer</b><br><br>Name: ${helper.firstname} ${helper.lastname}`).openPopup());
+              ).bindPopup(`<b>Helfer</b><br><br>${helper.firstname} ${helper.lastname}`).openPopup());
         });
         this.hospitals.forEach(hospital => {
           layers.push(marker([ hospital.latitude, hospital.longitude ],
@@ -50,7 +50,7 @@ export class MapComponent implements OnInit {
               iconAnchor: [ 25, 25 ],
               iconUrl: 'assets/hospital.png',
             })}
-            ).bindPopup(`<b>Krankenhaus</b><br><br>Name: ${hospital.name}`).openPopup());
+            ).bindPopup(`<b>Krankenhaus</b><br><br>${hospital.name}`).openPopup());
         });
 
         this.layers = layers;

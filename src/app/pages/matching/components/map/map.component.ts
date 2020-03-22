@@ -36,11 +36,15 @@ export class MapComponent implements OnInit {
         let layers = [];
 
         this.helpers.forEach(helper => {
-          let helpertext = `<b>Helfer</b><br><br>${helper.firstname} ${helper.lastname}<br><br>Benötigt Hilfe bei:<br><ul>`;
+          let helpertext = `<h6>Helfer</h6><br/><b>${helper.firstname} ${helper.lastname}</b></b><br><br>Benötigt Hilfe bei:<br><table class="table"><br/>`;
           helper.helpBy.forEach(help => {
-            helpertext += `<li>${help} <a href="">Hilfe anbieten</a></li>`;
+            helpertext += `
+                <tr>
+                    <td style="padding-top: 18px;"><b>${help}</b></td>
+                    <td> <button class="btn btn-sm btn-success">Hilfe anbieten</button></td>
+                </tr>`;
           });
-          helpertext += '</ul>';
+          helpertext += '</table>';
           layers.push(marker([ helper.latitude, helper.longitude ],
             {icon: icon({
               iconSize: [ 50, 40 ],

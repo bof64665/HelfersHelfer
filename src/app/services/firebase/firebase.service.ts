@@ -56,7 +56,7 @@ export class FirebaseService {
       helpBy: ['Einkäufe erledigen', 'Hund ausführen'],
       rating: '',
       latitude: 49.020486,
-      longitude: 12.058422
+      longitude: 12.048422
     },
   ];
 
@@ -84,8 +84,8 @@ export class FirebaseService {
       address:"Prüfeninger Straße 86",
       postcode:"93049",
       city:"Regensburg",
-      longitude:12.07968,
-      latitude:49.05215
+      longitude:12.0617583,
+      latitude:49.0170398
     }
     ];
 

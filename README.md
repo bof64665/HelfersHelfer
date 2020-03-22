@@ -15,6 +15,17 @@ BürgerInnen können anbieten, Aktivitäten wie den Einkauf von Lebensmitteln, A
 
 BürgerInnen können Einrichtungen des Gesundheitswesens und den dort beschäftigten HelferInnen finanzielle Unterstützung in Form einer Spende zukommen lassen. Unsere Lösung bietet dazu eine Übersicht der Einrichtungen des Gesundheitswesens und eine Spendenoption.
 
+# Live Demo
+Eine Live Demo ist verfügbar unter [132.199.123.240](132.199.123.240).
+
+Zugangsdaten für einen Helfer: 
+- Email: anna.maier@ukr.de
+- Passwort: anna
+
+Zugangsdaten für einen Helfershelfer: 
+- Email: sepp@huber.de
+- Passwort: sepp
+
 # How we built it
 Die Umsetzung der **HelfersHelfer Plattform** erfolgt als Webseite.
 Die technische Grundstruktur besteht aus:

@@ -36,7 +36,7 @@ export class MapComponent implements OnInit {
         let layers = [];
 
         this.helpers.forEach(helper => {
-          let helpertext = `<h6>Helfer</h6><br/><b>${helper.firstname} ${helper.lastname}</b></b><br><br>Benötigt Hilfe bei:<br><table class="table"><br/>`;
+          let helpertext = `<h6>${helper.firstname} ${helper.lastname}</h6><br>Benötigt Hilfe bei:<br><table class="table"><br/>`;
           helper.helpBy.forEach(help => {
             helpertext += `
                 <tr>
@@ -61,10 +61,7 @@ export class MapComponent implements OnInit {
               iconUrl: 'assets/hospital.png',
             })}
             ).bindPopup(`
-                <h6>Krankenhaus</h6>
-                <br/>
-                    ${hospital.name}
-                <br/>
+                <h6>${hospital.name}</h6>
                 <br/>
                 <b>Spenden an das Personal: </b>
                 <br/>

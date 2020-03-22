@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
       </a>
     </div>
     <span class="created-by">
-      Created with ♥ by <b><a href="https://www.uni-regensburg.de/wirtschaftswissenschaften/wi-pernul/" target="_blank">IFS Team</a></b> at <b><a href="https:/https://wirvsvirushackathon.org/" target="_blank">WirVsVirus Hackathon</a></b> 2020
+      Created with <nb-icon icon="heart-outline"></nb-icon> by <b><a href="https://www.uni-regensburg.de/wirtschaftswissenschaften/wi-pernul/" target="_blank">IFS Team</a></b> at <b><a href="https://wirvsvirushackathon.org/" target="_blank">WirVsVirus Hackathon</a></b> 2020
     </span>
     <span class="created-by">
       #StayAtHome #WirVsVirusHack

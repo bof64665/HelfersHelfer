@@ -28,7 +28,9 @@ export class RegisterComponent implements OnInit {
     if (loggedInUser) {
       this.dataService.loggedInUser = loggedInUser;
       this.dataService.updateUserMenu();
-      this.router.navigate([`profile/${this.dataService.loggedInUser.id}`]);
+      this.dataService.loggedInUser.type === 'Helfer'
+        ? this.router.navigate([`hilfeGesuche/${this.dataService.loggedInUser.id}`])
+        : this.router.navigate(['matching']);
     }
   }
 }

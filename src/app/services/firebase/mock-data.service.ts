@@ -204,8 +204,8 @@ export class MockDataService {
       link: `/hilfeGesuche/${this.loggedInUser.id}`
     };
 
-    this.userMenu.push(userMenuProfile);
     this.userMenu.push(this.loggedInUser.type === 'Helfer' ? userMenuHelpRequest : userMenuHelpOffer);
+    this.userMenu.push(userMenuProfile);
     this.userMenu.push(userMenuLogOut);
   }
 }

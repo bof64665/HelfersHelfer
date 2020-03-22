@@ -1,5 +1,6 @@
 import { MockDataService } from './../../../../services/firebase/mock-data.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -14,6 +15,7 @@ export class CardComponent implements OnInit {
 
   constructor(
     public dataService: MockDataService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ export class CardComponent implements OnInit {
       this.helper = null;
     }
     this.currentRequestIndex++;
+  }
+
+  onLinkClick() {
+    this.router.navigate([`profile/${this.helper.id}`]);
   }
 }

@@ -1,7 +1,7 @@
 <div class="flex flex-vertical-center flex-horizontal-center">
   <div style="max-width:24rem">
     <nb-card class="mb-0">
-      <img *ngIf="helper" src="{{ helper.img}}" class="w-100" style="max-height:500px"/>
+      <img *ngIf="helper" src="{{ helper.img }}" class="w-100" style="max-height:500px"/>
       <div  *ngIf="!helper" class="flex flex-horizontal-center w-100" style="height:400px">
         <nb-icon class="w-100 d-block" icon="person" [options]="{ width: 400, height: 400}"></nb-icon>
       </div>
@@ -12,7 +12,7 @@
           <nb-icon icon="person"></nb-icon>
         </div>
         <div class="col">
-          <span>{{ helper.name }}</span><!-- TODO FABI LINK-->
+          <span><a (click)="onLinkClick()" style="cursor: pointer;">{{ helper.name }}</a></span>
         </div>
       </div>
     </nb-card>
@@ -40,10 +40,10 @@
 </div>
 <div class="flex flex-horizontal-center container">
   <div class="row">
-    <button style="width:12rem;height:100px" class="col" nbButton fullWidth status="danger" (click)="onRefuse()" [disabled]="!currentHelpRequest">
+    <button style="width: 12rem; height: 5rem;" class="col" nbButton fullWidth status="danger" (click)="onRefuse()" [disabled]="!currentHelpRequest">
       <nb-icon icon="close-circle"></nb-icon>Keine Zeit
     </button>
-    <button style="width:12rem;cursor:pointer" class="col" nbButton fullWidth status="success" (click)="onHelp()" [disabled]="!currentHelpRequest">
+    <button style="width: 12rem;" class="col" nbButton fullWidth status="success" (click)="onHelp()" [disabled]="!currentHelpRequest">
       <nb-icon icon="star"></nb-icon>Mach ich gerne
     </button>
   </div>

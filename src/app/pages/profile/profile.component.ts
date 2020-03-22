@@ -16,7 +16,12 @@ export class ProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public dataService: MockDataService,
-  ) { }
+  ) {
+    route.paramMap.subscribe( paramMap => {
+      this.user = this.dataService.users.find( user => user.id === paramMap.get('userId'));
+      this.helfer = this.user.type === 'Helfer' ? true : false;
+    });
+  }
 
   ngOnInit(): void {
     this.user = this.dataService.users.find( user => user.id === this.route.snapshot.paramMap.get('userId'));

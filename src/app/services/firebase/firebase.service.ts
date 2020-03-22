@@ -19,6 +19,11 @@ export class FirebaseService {
     const helpers: Observable<any[]> = this.firestore.collection('Helfer').valueChanges();
     return helpers.pipe(first()).toPromise() as Promise<Helper[]>;
   }
+
+  public async getHelperHelper(): Promise<HelperHelper[]> {
+    const HelperHelpers: Observable<any[]> = this.firestore.collection('HelferHelfer').valueChanges();
+    return HelperHelpers.pipe(first()).toPromise() as Promise<HelperHelper[]>;
+  }
 }
 
 export interface Hospital {
@@ -27,8 +32,8 @@ export interface Hospital {
   name: string;
   name2?: string;
   postcode?: string;
-  longitude?: string;
-  latitude?: string;
+  longitude?: number;
+  latitude?: number;
 }
 
 export interface Helper {
@@ -36,6 +41,18 @@ export interface Helper {
   lastname: string;
   address: string;
   verified: string;
-  helpWith: string[];
+  helpBy: string[];
   rating: string;
+  longitude: number;
+  latitude: number;
+}
+
+export interface HelperHelper {
+  firstname: string;
+  lastname: string;
+  address: string;
+  verified: string;
+  helpWith: string[];
+  longitude: number;
+  latitude: number;
 }

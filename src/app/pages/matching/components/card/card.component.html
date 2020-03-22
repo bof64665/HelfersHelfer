@@ -1,6 +1,11 @@
 <div class="flex flex-vertical-center flex-horizontal-center">
   <div style="max-width:24rem">
-    <img src="{{helper.img}}" class="w-100" style="max-height:500px"/>
+    <nb-card class="mb-0">
+      <img *ngIf="helper" src="{{ helper.img}}" class="w-100" style="max-height:500px"/>
+      <div  *ngIf="!helper" class="flex flex-horizontal-center w-100" style="height:400px">
+        <nb-icon class="w-100 d-block" icon="person" [options]="{ width: 400, height: 400}"></nb-icon>
+      </div>
+    </nb-card>
     <nb-card class="mb-0">
       <div class="row p-2">
         <div class="col-md-1 ml-2">

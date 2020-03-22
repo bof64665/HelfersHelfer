@@ -38,6 +38,7 @@ export class CardComponent implements OnInit {
       this.helper = this.dataService.users.find( user => user.id === this.currentHelpRequest.userId);
     } else {
       this.currentHelpRequest = null;
+      this.helper = null;
     }
     this.currentRequestIndex++;
   }

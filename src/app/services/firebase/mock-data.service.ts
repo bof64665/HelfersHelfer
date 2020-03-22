@@ -52,6 +52,33 @@ export class MockDataService {
     },
   ];
 
+  helpRequests = [
+    {
+      userId: '1',
+      id: '1',
+      description: 'Es wäre super nett, wenn jemand für mich einkaufen gehen könnte...',
+      timestamp: 'Sa., 21.03.2020',
+    },
+    {
+      userId: '1',
+      id: '2',
+      description: 'Ich hätte ein paar wichtige Briefe zur Post zu bringen.',
+      timestamp: 'Mo., 23.03.2020',
+    },
+  ];
+
+  helpOffers = [
+    {
+      userId: '2',
+      request: {
+        userId: '1',
+        id: '1',
+        description: 'Es wäre super nett, wenn jemand für mich einkaufen gehen könnte...',
+        timestamp: 'Sa., 21.03.2020',
+      }
+    }
+  ];
+
   updateUserMenu() {
     this.userMenu = [
       {

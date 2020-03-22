@@ -1,5 +1,7 @@
+import { MockDataService } from './../../services/firebase/mock-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface TreeNode<T> {
   data: T;
@@ -8,9 +10,9 @@ interface TreeNode<T> {
 }
 
 interface Entry {
+  userId: string;
   name: string;
   distance: string;
-  availability: string;
   rating: number;
 }
 
@@ -21,57 +23,72 @@ interface Entry {
 })
 
 export class ListComponent implements OnInit {
-  defaultColumns = ['name', 'distance', 'availability', 'rating'];
-  defaultColumnsMapping = [
+  defaultColumns = ['distance', 'rating'];
+  nameColumn = 'name';
+  allColumns = [ this.nameColumn, ...this.defaultColumns];
+  columnsMapping = [
     {name: 'name', title: 'Name'},
     {name: 'distance', title: 'Entfernung'},
-    {name: 'availability', title: 'Tag und Uhrzeit'},
     {name: 'rating', title: 'Bewertung'}
   ];
 
-  helpRequest = {
-    description: 'HILFE',
-    timestamp: 'Sa, 21.03.2020',
-  };
-
-  helpRequests = [
-    {
-      description: 'HILFE',
-      timestamp: 'Sa, 21.03.2020',
-    },
-  ];
+  helpRequests = [ ];
 
   newHelpRequest = {
+    userId: '',
+    id: '',
     description: '',
     timestamp: null
   };
 
   dataSource: NbTreeGridDataSource<Entry>;
 
-  constructor(dataSourceBuilder: NbTreeGridDataSourceBuilder<Entry>) {
-    this.dataSource = dataSourceBuilder.create(this.data);
-  }
+  constructor(
+    private dataSourceBuilder: NbTreeGridDataSourceBuilder<Entry>,
+    private route: ActivatedRoute,
+    private router: Router,
+    public dataService: MockDataService) { }
 
-  private data: TreeNode<Entry>[] = [
-    {
-      data: { name: 'Projects', distance: '1.8 MB', rating: 5, availability: 'dir' }
-    },
-    {
-      data: { name: 'Reports', availability: 'dir', distance: '400 KB', rating: 2 }
-    }
-  ];
+  private data: TreeNode<Entry>[] = [ ];
 
   ngOnInit(): void {
+    this.helpRequests = this.dataService.helpRequests.filter( request => request.userId === this.route.snapshot.paramMap.get('userId'));
+    this.newHelpRequest.userId = this.route.snapshot.paramMap.get('userId');
+    this.newHelpRequest.id = this.helpRequests.length.toString();
+    this.buildTable();
+    this.dataSource = this.dataSourceBuilder.create(this.data);
+  }
+
+  buildTable() {
+    const helpOffers = this.dataService.helpOffers.filter (offer => offer.request.userId === this.route.snapshot.paramMap.get('userId'));
+    helpOffers.map( helpOffer => {
+      const helpersHelper = this.dataService.users.find( user => user.id === helpOffer.userId);
+      this.data.push({
+        data: {
+          userId: helpersHelper.id,
+          name: helpersHelper.name,
+          distance: '0.8km',
+          rating: helpersHelper.rating,
+        }
+      });
+    });
   }
 
   onAddHelpRequest() {
-    this.helpRequests.push({
+    this.dataService.helpRequests.push({
+      userId: this.newHelpRequest.userId,
+      id: this.newHelpRequest.id,
       description: this.newHelpRequest.description,
-      timestamp: this.newHelpRequest.timestamp.format('dd, DD.MM.YYYY')
+      timestamp: this.newHelpRequest.timestamp.format('dd., DD.MM.YYYY')
     });
+    this.helpRequests = this.dataService.helpRequests.filter( request => request.userId === this.route.snapshot.paramMap.get('userId'));
+    this.newHelpRequest.id = this.helpRequests.length.toString();
     this.newHelpRequest.description = '';
     this.newHelpRequest.timestamp = null;
-    console.log(this.helpRequests);
   }
 
+  onLinkClick(event: any) {
+    this.dataService.users.find( user => user.name === event.target.text);
+    this.router.navigate([`profile/${this.dataService.users.find( user => user.name === event.target.text).id}`]);
+  }
 }

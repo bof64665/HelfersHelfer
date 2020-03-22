@@ -5,6 +5,7 @@
  */
 package com.ifs.spitalscraper;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -26,12 +27,14 @@ public class Main {
 
 //        Spital get = spitals.get(12);
         for (Spital spital : spitals) {
-            spital = retrieveCoords(spital);
-            Thread.sleep(2000);
+            //  spital = retrieveCoords(spital);
+            //  Thread.sleep(2000);
             System.err.println("ADDED " + spital);
         }
 
-        new DbManager().pushToFirebase(spitals);
+        new OutputWriter().writeToFile(spitals);
+
+        //   new DbManager().pushToFirebase(spitals);
     }
 
     private static Spital retrieveCoords(Spital spital) throws MalformedURLException, IOException {

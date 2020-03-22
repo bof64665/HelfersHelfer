@@ -30,14 +30,7 @@ public class DbManager {
 
     public void pushToFirebase(List<Spital> spitals) throws IOException {
 
-        Gson gson = new Gson();
-        String toJson = gson.toJson(spitals);
-//
-        String str = "C:\\Users\\tarnschaf\\Desktop\\Virusprojekt\\output.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(str));
-        writer.write(toJson);
 
-        writer.close();
 
         FileInputStream serviceAccount = new FileInputStream("C:\\Users\\tarnschaf\\service-account-file.json");
 

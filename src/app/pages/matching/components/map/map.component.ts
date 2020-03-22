@@ -9,7 +9,7 @@ import { Hospital, FirebaseService, Helper, HelperHelper } from 'src/app/service
 })
 export class MapComponent implements OnInit {
   private helpers: Helper[];
-  private helperhelpers: HelperHelper[];
+  private hospitals: Hospital[];
 
   options = {
     layers: [
@@ -29,22 +29,28 @@ export class MapComponent implements OnInit {
     this.firebaseService.getHelper().then(helpers => {
       this.helpers = helpers;
 
-      this.firebaseService.getHelperHelper().then(helperhelpers => {
-        this.helperhelpers = helperhelpers;
+      this.firebaseService.getHospitals().then(hospitals => {
+        this.hospitals = hospitals;
 
         let layers = [];
 
         this.helpers.forEach(helper => {
             layers.push(marker([ helper.latitude, helper.longitude ],
               {icon: icon({
-                iconSize: [ 25, 41 ],
-                iconAnchor: [ 13, 41 ],
-                iconUrl: 'assets/uni.png',
+                iconSize: [ 50, 40 ],
+                iconAnchor: [ 25, 25 ],
+                iconUrl: 'assets/helper.png',
               })}
               ).bindPopup(`<b>Helfer</b><br><br>Name: ${helper.firstname} ${helper.lastname}`).openPopup());
         });
-        this.helperhelpers.forEach(helperhelper => {
-          layers.push(marker([ helperhelper.latitude, helperhelper.longitude ]).bindPopup(`<b>HelferHelfer</b><br><br>Name: ${helperhelper.firstname} ${helperhelper.lastname}`).openPopup());
+        this.hospitals.forEach(hospital => {
+          layers.push(marker([ hospital.latitude, hospital.longitude ],
+            {icon: icon({
+              iconSize: [ 50, 50 ],
+              iconAnchor: [ 25, 25 ],
+              iconUrl: 'assets/hospital.png',
+            })}
+            ).bindPopup(`<b>Krankenhaus</b><br><br>Name: ${hospital.name}`).openPopup());
         });
 
         this.layers = layers;

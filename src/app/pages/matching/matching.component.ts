@@ -12,4 +12,7 @@ export class MatchingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public changeTab(){
+    window.dispatchEvent(new Event('resize'));
+  }
 }

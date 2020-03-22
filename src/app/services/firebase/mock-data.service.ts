@@ -15,7 +15,7 @@ export class MockDataService {
   users = [
     {
       id: '1',
-      name: 'Anna Meier',
+      name: 'Anna Maier',
       location: 'Regensburg',
       plz: '93053',
       institution: 'Universitätsklinikum Regensburg',
